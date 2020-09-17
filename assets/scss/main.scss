@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+@import './utils/mixins';
+@import './utils/reset';
+@import './utils/vars';
+
+body {
+    font-family: $mainFont;
+    color: $mainFontColor;
+    font-size: $mainFontSize;
+    font-weight: $mainFontWeight;
+    line-height: $mainLineHeight;
+}
+
+h1 {
+    @include font-size(96, $line-height: normal, $letter-spacing: normal);
+    text-transform: uppercase;
+
+    @media screen and (max-width: $xlTabletWidth) {
+        @include font-size (40, $line-height: normal, $letter-spacing: normal);
+    }
+}
+
+h6 {
+    @include font-size(14, $line-height: 16, $letter-spacing: 0.5em);
+    text-transform: uppercase;
+}
+
+
+
+.text-col {
+    text-align: center;
+
+    .title {
+        @include font-size(36, $line-height: 42, $letter-spacing: normal);
+        text-transform: uppercase;
+    }
+
+    .subtitle {
+        @include font-size(18, $line-height: 24, $letter-spacing: normal);
+        font-weight: bold;
+        padding-bottom: 2vw;
+    }
+
+    .note {
+        @include font-size(14, $line-height: 20, $letter-spacing: normal);
+
+    }
+}
+
+.caption {
+    padding-top: 10vh;
+}
+
+.communication {
+    @include font-size(14, $line-height: 16, $letter-spacing: 0.12em);
+    padding-bottom: 5vh;
+    color: $thirdFontColor;
+
+    span {
+        font-weight: bold;
+    }
+
+}
+
+.header {
+
+    background: url("../img/header-bg.jpg") no-repeat center;
+    background-size: cover;
+
+    .nav-mobile {
+        display: none;
+    }
+
+    .nav-desktop {
+
+        ul {
+            @include flexbox();
+            padding-right: 2vw;
+
+            li {
+                padding-left: 4vw;
+                padding-top: 5vw;
+
+                &:first-child {
+                    padding-left: 2vw;
+                }
+
+                a {
+                    @include font-size(14, $line-height: $mainLineHeight, $letter-spacing: 0.12em);
+                    color: $mainFontColor;
+                    text-transform: uppercase;
+
+                    &:hover {
+                        padding-bottom: 2vh;
+                        border-bottom: 1px solid $button-bg-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .logo {
+        margin-top: 3vh;
+        margin-left: 0.3vw;
+    }
+
+    &__subtitle {
+        margin-top: 151px;
+        text-align: center;
+    }
+
+    &__title {
+        margin-top: 2vh;
+        text-align: center;
+        margin-left: -10vw;
+    }
+
+    &__links {
+        margin-top: 3vh;
+
+        &-book {
+            @include btn();
+            margin-right: 2vw;
+            padding: 15px 0;
+            text-align: center;
+            width: 200px;
+
+            &:hover {
+                background-color: $button-bg-color;
+            }
+        }
+
+        &-explore {
+            @include btn();
+            margin-left: 2vw;
+            padding: 15px 0;
+            text-align: center;
+            width: 200px;
+
+            &:hover {
+                background-color: $button-bg-color;
+            }
+        }
+    }
+
+    &__arrow {
+        margin-top: 5vh;
+        margin-bottom: 10vh;
+
+        &-link {
+            &:hover {
+                background-color: $button-bg-color;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    &__social {
+
+        a {
+            display: inline-block;
+            margin-bottom: 1vw;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &:hover {
+                background-color: $button-bg-color;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    @media screen and (max-width: $xlTabletWidth) {
+
+        .nav-desktop {
+            display: none;
+        }
+
+        .nav-mobile {
+            display: block;
+        }
+
+        .item:not(.button) a:hover,
+        .item a:hover::after {
+            color: #ccc;
+        }
+
+        /* Mobile menu */
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        .menu li a {
+            display: block;
+            padding: 2px 0;
+            margin-left: 20px;
+            color: $default-color;
+        }
+
+
+        .toggle {
+            order: 1;
+            margin-left: 20vw;
+            margin-top: 4vh;
+        }
+
+        .item.button {
+            order: 2;
+        }
+
+        .item {
+            order: 3;
+            width: 100%;
+            text-align: center;
+            display: none;
+        }
+
+        .active .item {
+            display: block;
+        }
+
+        h1 {
+            margin-left: 11vw;
+        }
+    }
+}
+
+.about {
+    padding-bottom: 40px;
+
+    .text-col {
+        padding-top: 7vw;
+        color: $secondFontColor;
+    }
+}
+
+.team {
+    background: url("../img/team_bg.jpg") no-repeat;
+    background-size: cover;
+    padding-bottom: 40px;
+
+    .text-col {
+        padding-top: 7vw;
+        color: $mainFontColor;
+    }
+
+
+}
+
+.reservation {
+    .text-col {
+        padding-top: 7vh;
+        color: $secondFontColor;
+        padding-bottom: 2vh;
+    }
+
+
+    input {
+        margin-bottom: 2vw;
+        background-color: #E5E5E5;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        border: none;
+
+        &::placeholder {
+            color: rgba(51, 51, 51, 0.5);
+        }
+    }
+
+    select {
+        background-color: #E5E5E5;
+        border: none;
+        color: $thirdFontColor;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 1vh 12vw;
+        color: $mainFontColor;
+        text-transform: uppercase;
+        background: $button-bg-color;
+
+        &:hover {
+            transform: scale(1.1);
+            transition: all 0.2s ease-in;
+        }
+    }
+
+}
+
+.specialties {
+    padding-bottom: 40px;
+    background: url("../img/specialties_bg.jpg") no-repeat;
+    background-size: cover;
+
+    .text-col {
+        padding-top: 7vw;
+    }
+
+
+}
+
+.menu {
+    .text-col {
+        padding-top: 7vh;
+        color: $secondFontColor;
+
+        .subtitle {
+            width: 50%;
+            padding-top: 2vh;
+        }
+    }
+
+    &__nav {
+        padding-bottom: 4vh;
+        overflow-x: auto;
+
+        ul {
+            li {
+                border-right: 2px solid rgba(51, 51, 51, 0.2);
+
+                &:first-child {
+                    margin-left: 60px;
+                }
+
+                &:last-child {
+                    border-right: 0;
+                }
+
+                a {
+                    display: inline-block;
+                    padding: 2vh 2vw;
+                    color: $secondFontColor;
+
+                }
+            }
+        }
+    }
+
+    &__list {
+        @include font-size(14, $line-height: 14, $letter-spacing: 0.12em);
+        padding-bottom: 10vh;
+        color: $secondFontColor;
+
+        .text {
+            font-weight: bold;
+        }
+
+        .notice {
+            @include font-size(10, $line-height: 14, $letter-spacing: 0.12em);
+        }
+
+        li {
+            margin-top: 3vh;
+        }
+    }
+
+    @media screen and (max-width: $smDesktopWidth) {
+        .menu__list {
+            @include flexbox();
+            @include flex-direction($direction: column);
+            @include justify-content($value: center);
+            @include align-items($value: center);
+        }
+    }
+}
+
+.events {
+    background: url("../img/specialties_bg.jpg");
+    background-size: cover;
+
+    a {
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .communication {
+        color: $mainFontColor;
+    }
+
+    .gallery {
+        img {
+            width: 23vw;
+        }
+    }
+}
+
+.contacts {
+    padding-bottom: 30px;
+
+    .text-col {
+        padding-top: 7vh;
+        color: $secondFontColor;
+
+        .subtitle {
+            width: 50%;
+            padding-top: 2vh;
+        }
+    }
+
+    input {
+        border: none;
+
+        background-color: #e5e5e5;
+
+        &::placeholder {
+            color: rgba(51, 51, 51, 0.5)
+        }
+    }
+
+    .fixed-textarea {
+        box-sizing: border-box;
+        padding-top: 2vw;
+    }
+
+    textarea {
+        width: 100%;
+        border-radius: 5px;
+        padding-top: 1vh;
+        padding-left: 1vw;
+
+        background-color: #e5e5e5;
+
+        &::placeholder {
+            color: rgba(51, 51, 51, 0.5)
+        }
+
+        &:focus {
+            background-color: #fff;
+            border: 3px solid rgba(140, 189, 245, 0.5);
+        }
+    }
+
+    &__bottom {
+        color: $secondFontColor;
+    }
+
+    .address,
+    .phone,
+    .email {
+        font-size: 12px;
+    }
+
+    .btn {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+        color: $mainFontColor;
+        text-transform: uppercase;
+        background: $button-bg-color;
+
+        &:hover {
+            transform: scale(1.02);
+            transition: all 0.2s ease-in-out;
+        }
+    }
+
+
+
+
+    @media screen and (max-width: $tableWidth) {
+        .form-group {
+            @include flexbox();
+            @include flex-direction($direction: column);
+            @include justify-content($value: center);
+            @include align-items($value: center);
+        }
+
+        .form-control {
+            margin-bottom: 3vh;
+        }
+    }
+}
+
+.footer {
+    .copyright {
+        padding: 20px 0 20px 0;
+        color: $default-color;
+        background-color: $neutral-primary;
+    }
+}
