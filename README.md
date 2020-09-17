@@ -18,7 +18,7 @@ Test website. Adaptive landing page.
 
 ```
 # Download repository:
-git clone https://github.com/di-i/coinbase.github.io.git
+git clone https://github.com/di-i/coinbase.git
 
 # Go to the app:
 cd coinbase.github.io
