@@ -21,14 +21,11 @@ Test website. Adaptive landing page.
 git clone https://github.com/di-i/coinbase.git
 
 # Go to the app:
-cd coinbase.github.io
+cd coinbase
 
 # Install dependencies:
 npm install
 
 # Server with hot reload at http://localhost:8080/
 npm run dev
-
-# Output will be at dist/ folder
-npm run build
 ```
